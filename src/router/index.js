@@ -16,18 +16,18 @@ const routes = [
     component: () => import(/* webpackChunkName: "main-index" */ "@/views/main/index.vue"),
     children: [{
       path: "",
-      name: "Dashboard",
-      component: () => import(/* webpackChunkName: "main-dashboard-index" */ "@/views/main/dashboard/index.vue"),
+      name: "Menu",
+      component: () => import(/* webpackChunkName: "main-menu-index" */ "@/views/main/dashboard/index.vue"),
       meta: {
-        title: `${rootTitle} - Dashboard`,
+        title: `${rootTitle} - Menu`,
         isAuthRequired: true
       }
     }, {
       path: "dashboard",
-      name: "dashboard-stats",
-      component: () => import(/* webpackChunkName: "main-dashboard-stats" */ "@/views/main/dashboard/statistic.vue"),
+      name: "Dashboard",
+      component: () => import(/* webpackChunkName: "main-dashboard" */ "@/views/main/dashboard/statistic.vue"),
       meta: {
-        title: `${rootTitle} - status`,
+        title: `${rootTitle} - Dashboard`,
         isAuthRequired: true
       }
     }],
@@ -35,7 +35,7 @@ const routes = [
       title: `${rootTitle}`,
       isAuthRequired: true
     },
-    redirect: { name: 'Dashboard' }
+    redirect: { name: 'Menu' }
   },
   {
     path: "/404",
