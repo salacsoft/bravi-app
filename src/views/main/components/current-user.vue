@@ -16,9 +16,9 @@
         src="/img/svg/male-avatar.svg"
         class="h-20 w-20 border-4 border-winter-green rounded-full"
       />
-      <div>
-        <h4 class="flex justify-center text-2xl">Joseph Salac</h4>
-        <p class="tracking-wider font-sm">Account Manager</p>
+      <div class="flex flex-col">
+        <h4 class="text-2xl">{{ name }}</h4>
+        <p class="flex tracking-wider font-sm">Account Manager</p>
       </div>
     </div>
 
@@ -42,9 +42,14 @@
 </template>
 
 <script>
+import { useStore } from "vuex";
 export default {
   setup() {
-    return {};
+    const store = useStore();
+    const currentUser = store.getters.getUserDetails;
+    const name = currentUser.full_name;
+
+    return { name };
   },
 };
 </script>

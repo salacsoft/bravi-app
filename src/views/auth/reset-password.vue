@@ -23,45 +23,37 @@
       <h1 class="tracking-widest text-xl sm:text-2xl mb-5">
         Create new Password
       </h1>
-      <div class="login-form space-y-14">
-        <div class="space-y-6">
-          <Password
-            customClass="new-password"
-            v-model="newPassword"
-            label="New Password"
-            placeholder="Enter your new password"
-            id="newPassword"
-          />
-          <Password
-            customClass="retype-new-password"
-            v-model="reTypePassword"
-            label="Re-type Password"
-            placeholder="Re-type your new password"
-            id="reTypeNewPassword"
-          />
-        </div>
+      <form @submit.prevent="resetPassword">
+        <div class="login-form space-y-14">
+          <div class="space-y-6">
+            <Password
+              customClass="new-password"
+              v-model="reset.password"
+              label="New Password"
+              placeholder="Enter your new password"
+              id="newPassword"
+            />
+            <Password
+              customClass="retype-new-password"
+              v-model="reset.confirm_password"
+              label="Re-type Password"
+              placeholder="Re-type your new password"
+              id="reTypeNewPassword"
+            />
+          </div>
 
-        <div class="space-y-3">
-          <button class="btn btn-neutral w-full tracking-wider">Submit</button>
+          <div class="space-y-3">
+            <button class="btn btn-neutral w-full tracking-wider">
+              Submit
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
-import Password from "./components/password.vue";
-export default {
-  components: {
-    Password,
-  },
-  setup() {
-    const newPassword = ref("");
-    const reTypePassword = ref("");
-    return { newPassword, reTypePassword };
-  },
-};
+<script src="./js/reset-password.js">
 </script>
 
 <style lang="scss" scoped>

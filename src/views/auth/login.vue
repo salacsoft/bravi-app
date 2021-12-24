@@ -57,60 +57,7 @@
   </div>
 </template>
 
-<script>
-import { reactive } from "vue";
-import Password from "./components/password.vue";
-import Email from "./components/email.vue";
-import { createToast } from "mosha-vue-toastify";
-
-import { apiClient } from "@/api/httpService.js";
-
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-
-export default {
-  components: {
-    Password,
-    Email,
-  },
-  setup() {
-    const store = useStore();
-    const router = useRouter();
-
-    const credential = reactive({ email: "", password: "" });
-
-    function login() {
-      apiClient
-        .post("login", { ...credential })
-        .then((response) => {
-          let data = response.data;
-
-          createToast("Welcome " + data.data.full_name, { type: "success" });
-          const { email, full_name, uuid, user_uuid, user_id } = data.data;
-
-          store.dispatch("setUserToken", data.data);
-          store.dispatch("setUserDetails", {
-            email,
-            full_name,
-            uuid,
-            user_uuid,
-            user_id,
-          });
-
-          store.dispatch("initializeLogoutTimer");
-          router.push("/");
-        })
-        .catch((error) => {
-          if (error && error.data) {
-            let msg = error.data.message;
-            createToast(msg, { type: "danger", timeout: 10000 });
-          }
-        });
-    }
-
-    return { login, credential };
-  },
-};
+<script src="./js/login.js">
 </script>
 
 <style lang="scss" scoped>

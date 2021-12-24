@@ -20,40 +20,35 @@
 
     <!-- form -->
     <div class="mt-10">
-      <div class="login-form space-y-14">
-        <div class="space-y-6">
-          <Email
-            placeholder="Enter your email address"
-            v-model="userEmail"
-            label="Email"
-          />
-        </div>
+      <form @submit.prevent="forgotPassword">
+        <div class="login-form space-y-14">
+          <div class="space-y-6">
+            <Email
+              placeholder="Enter your email address"
+              v-model="credential.email"
+              label="Email"
+            />
+          </div>
 
-        <div class="space-y-3">
-          <button class="btn btn-neutral w-full tracking-wider">Submit</button>
-          <div class="flex justify-end">
-            <router-link
-              class="underline items-start tracking-wider"
-              to="/login"
-              >Back to Login</router-link
-            >
+          <div class="space-y-3">
+            <button class="btn btn-neutral w-full tracking-wider" type="submit">
+              Submit
+            </button>
+            <div class="flex justify-end">
+              <router-link
+                class="underline items-start tracking-wider"
+                to="/login"
+                >Back to Login</router-link
+              >
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
-import Email from "./components/email.vue";
-export default {
-  components: { Email },
-  setup() {
-    const userEmail = ref("");
-    return { userEmail };
-  },
-};
+<script src="./js/forgot-password.js">
 </script>
 
 <style lang="scss" scoped>
