@@ -11,15 +11,30 @@
       text-winter-black
     "
   >
-    <h1 class="tracking-wider text-sm">Brand name copyright 2021</h1>
-    <p class="tracking-wider text-sm">ver. 1.0.0</p>
+    <h1 class="tracking-wider text-sm">
+      <span class="text-lg font-semibold">{{ brand }}</span> copyright
+      {{ year }}
+    </h1>
+    <p class="tracking-wider text-sm">{{ ver }}</p>
   </div>
 </template>
 
 <script>
+//LIBRARIES
+import { ref, onMounted } from "vue";
+
 export default {
   setup() {
-    return {};
+    let ver = ref("");
+    let year = ref("");
+    let brand = ref("");
+    onMounted(() => {
+      const d = new Date();
+      year.value = d.getFullYear();
+      ver.value = process.env.VUE_APP_VERSION;
+      brand.value = process.env.VUE_APP_NAME;
+    });
+    return { ver, year, brand };
   },
 };
 </script>

@@ -18,7 +18,7 @@
       />
       <div class="flex flex-col">
         <h4 class="text-2xl">{{ name }}</h4>
-        <p class="flex tracking-wider font-sm">Account Manager</p>
+        <!-- <p class="flex tracking-wider font-sm">Account Manager</p> -->
       </div>
     </div>
 
@@ -34,7 +34,7 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+          d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
     </div>
@@ -43,13 +43,16 @@
 
 <script>
 import { useStore } from "vuex";
+
 export default {
   setup() {
     const store = useStore();
     const currentUser = store.getters.getUserDetails;
     const name = currentUser.full_name;
 
-    return { name };
+    function logout() {}
+
+    return { name, logout };
   },
 };
 </script>

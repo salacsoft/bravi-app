@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-around h-screen p-2">
+  <div class="flex flex-col justify-around h-full p-2">
     <div
       class="
         flex
@@ -24,7 +24,7 @@
               items-center
               shadow-md
               bg-winter-white
-              opacity-80
+              opacity-90
               rounded-xl
               overflow-x-hidden
             "
@@ -109,7 +109,7 @@
               items-center
               shadow-md
               bg-winter-white
-              opacity-80
+              opacity-90
               rounded-xl
               overflow-x-hidden
             "
@@ -158,7 +158,7 @@
               items-center
               shadow-md
               bg-winter-white
-              opacity-80
+              opacity-90
               rounded-xl
               overflow-x-hidden
             "
@@ -207,7 +207,7 @@
               items-center
               shadow-md
               bg-winter-white
-              opacity-80
+              opacity-90
               rounded-xl
               overflow-x-hidden
             "
